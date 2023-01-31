@@ -6,9 +6,4 @@ export const theme = createTheme({
             main: '#FF2D00'
         }
     },
-    logo: {
-        flexGrow: "1",
-        cursor: "pointer",
-    },
-
 })

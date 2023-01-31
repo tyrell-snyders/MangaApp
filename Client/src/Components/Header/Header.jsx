@@ -3,11 +3,14 @@ import { AppBar, Toolbar, CssBaseline, Typography, useTheme } from '@mui/materia
 import { Link } from "react-router-dom"
 
 const Header = () => {
-    const theme = useTheme()
     return (
-        <>
-            <Typography color="primary">Hello There</Typography>
-        </>
+        <React.Fragment>
+            <AppBar sx={{background: '#4e6973'}}>
+                <Toolbar>
+                    <Typography variant='h6'>Hello World</Typography>
+                </Toolbar>
+            </AppBar>
+        </React.Fragment>
     )
 }
 

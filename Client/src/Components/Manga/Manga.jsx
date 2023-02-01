@@ -1,10 +1,10 @@
 import React from 'react'
-import { CardActionArea, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
+import { CardActionArea, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material'
 
 const Manga = ({title, pic, chap, slug}) => {
     return (
         <>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={12} md={4}>
                 <Card sx={{ maxWidth: 250 }}>           
                     <CardActionArea>
                         <CardMedia

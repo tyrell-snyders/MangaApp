@@ -8,6 +8,7 @@ import Header from './Components/Header/Header'
 import Layout from './Components/Layout'
 import Home from './Components/Home/Home'
 
+import './App.css'
 
 function App() {
 	const [comics, setComics] = useState([])

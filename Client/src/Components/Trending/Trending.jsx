@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Grid } from '@mui/material'
 
 import Manga from '../Manga/Manga'
 
@@ -11,19 +12,20 @@ const Trending = ({comics}) => {
     useEffect(() => {
         validateData()
     }, [comics])
-    console.log(coms)
 
     return (
         <>
-            {comics.map((com, i) => (
-                <Manga 
-                    key={i}
-                    title={com.title}
-                    pic={com.md_covers}
-                    chap={com.last_chapter}
-                    slug={com.slug}
-                />
-            ))}
+            <Grid container spacing={6}>
+                {comics.map((com, i) => (
+                    <Manga 
+                        key={i}
+                        title={com.title}
+                        pic={com.md_covers}
+                        chap={com.last_chapter}
+                        slug={com.slug}
+                    />
+                ))}
+            </Grid>
         </>
     )
 }

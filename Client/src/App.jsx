@@ -10,15 +10,19 @@ import Home from './Components/Home/Home'
 
 
 function App() {
-	const [comics, setComics] = useState()
+	const [comics, setComics] = useState([])
 	const getTopManga = async () => {
-		await api.get('/api/comick/top_comics/manga').then(response => setComics(response.data.trending[7]))
+		try {
+			const res = await api.get('/api/comick/top_comics/manga')
+			setComics(res.data.rank)
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	useEffect(() => {
 		getTopManga()
 	}, [])
-	console.log(comics)
 
 	return (
 		<>

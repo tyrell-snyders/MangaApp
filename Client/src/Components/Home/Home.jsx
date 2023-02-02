@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from '@mui/system'
+import Button from '@mui/material/Button';
 
 import Trending from '../Trending/Trending'
 

@@ -1,10 +1,12 @@
 import React from 'react'
-import { CardActionArea, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material'
+import { CardActionArea, Card, CardContent, CardMedia, Typography, Grid, useMediaQuery } from '@mui/material'
 
 const Manga = ({title, pic, chap, slug}) => {
+    const matches = useMediaQuery('(min-width:600px)')
+    
     return (
         <>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={6} md={3}>
                 <Card sx={{ maxWidth: 250 }}>           
                     <CardActionArea>
                         <CardMedia

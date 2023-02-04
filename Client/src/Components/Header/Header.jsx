@@ -94,5 +94,4 @@ Header.propTypes = {
     window: PropTypes.func,
 }
 
-
 export default Header

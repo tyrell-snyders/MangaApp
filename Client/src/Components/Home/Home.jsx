@@ -6,7 +6,7 @@ import Trending from '../Trending/Trending'
 
 const Home = ({comics}) => {
     return (
-        <Container sx={{marginTop: '80px'}}>
+        <Container sx={{marginTop: '80px', alignItems: 'center'}}>
             <div className='trending'>
                 <Trending comics={comics} />
             </div>

@@ -14,31 +14,33 @@ const Mng = ({mng}) => {
     }, [manga])
 
     return (
-        <div className='manga'>
-            <Grid container spacing={6}>
-            {manga.map((mang, i) => (
-                <>
-                        <Grid key={i} item xs={6} md={3}>
-                            <Card sx={{ maxWidth: 250 }}>
-                                <CardActionArea>
-                                    <CardMedia 
-                                        component="img"
-                                        height="345"
-                                        image={`https://meo.comick.pictures/${mang.md_covers[0].b2key}`}
-                                        alt={mang.slug}
-                                    />
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h6" component="div">
-                                            {mang.title}
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
-                </>
-            ))}
-        </Grid>
-        </div>
+        <Container>
+            <div className='manga'>
+                <Grid container spacing={6}>
+                    {manga.map((mang, i) => (
+                        <>
+                            <Grid key={i} item xs={6} md={3}>
+                                <Card sx={{ maxWidth: 250 }}>
+                                    <CardActionArea>
+                                        <CardMedia 
+                                            component="img"
+                                            height="345"
+                                            image={`https://meo.comick.pictures/${mang.md_covers[0].b2key}`}
+                                            alt={mang.slug}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h6" component="div">
+                                                {mang.title}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+                        </>
+                    ))}
+                </Grid>
+            </div>
+        </Container>
     )
 }
 

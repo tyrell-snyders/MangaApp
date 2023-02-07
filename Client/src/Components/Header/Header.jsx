@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, Button, ListItemText, Toolbar, AppBar, CssBaseline, Typography } from '@mui/material'
-
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from "react-router-dom"
+import MenuIcon from '@mui/icons-material/Menu'
+import { Link } from 'react-router-dom'
 
 const drawerWidth = 240
 const navItems = ['Manhwa', 'Manga', 'Search']
@@ -19,14 +18,18 @@ const Header = (props) => {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant='h6' sx={{my: 2}}>
-                Despair's Manga App
+                <Link to={'/'} style={{textDecoration: 'none', color: 'black'}}>
+                    Despair's Manga App
+                </Link>
             </Typography>
             <Divider />
             <List>
                 {navItems.map((item, i) => (
                     <ListItem key={i} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
+                            <Link to={`/${item}`} style={{textDecoration: 'none', color: 'black', textAlign: 'center'}}>
+                                <ListItemText primary={item} sx={{textAlign: 'center'}} />
+                            </Link>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -56,14 +59,18 @@ const Header = (props) => {
                             component='div'
                             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                         >
-                            Despair's Manga App
+                            <Link to={'/'} style={{textDecoration: 'none', color: 'white'}}>
+                                Despair's Manga App
+                            </Link>
                         </Typography>
                         <Box sx={{ display: { xs: 'none', sm: 'block' }, marginRight: '10rem' }}>
                             {navItems.map((item, i) => (
                                 <>
-                                    <Button key={i} sx={{ color: '#fff', marginLeft: '20px' }}>
+                                    <Link key={i} to={`/${item}`} style={{textDecoration: 'none'}}>
+                                        <Button sx={{ color: '#fff', marginLeft: '20px' }}>
                                         {item}
-                                    </Button>
+                                        </Button>
+                                    </Link>
                                 </>
                             ))}
                         </Box>

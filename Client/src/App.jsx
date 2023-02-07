@@ -7,8 +7,8 @@ import api from './API/api.js'
 import Header from './Components/Header/Header'
 import Layout from './Components/Layout'
 import Home from './Components/Home/Home'
+import Mng from './Components/Manga/Mng/Mng'
 
-import './App.css'
 
 function App() {
 	const [comics, setComics] = useState([])
@@ -25,6 +25,20 @@ function App() {
 		getTopManga()
 	}, [])
 
+	const [manga, setManga] = useState([])
+	const getManga = async () => {
+		try {
+			const res = await api.get('/api/comick/top_comics/manga')
+			setManga(res.data.recentRank)
+		} catch (e) {
+			console.log(e)
+		}
+	}
+	
+	useEffect(() => {
+		getManga(manga)
+	}, [])
+
 	return (
 		<>
 			<div className="App">
@@ -32,6 +46,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Layout />}>
 						<Route path='/' element={<Home comics={comics} />} />
+						<Route path='/Manga' element={<Mng mng={manga} />} />
 					</Route>
 				</Routes>
 			</div>

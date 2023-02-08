@@ -14,7 +14,7 @@ const Mng = ({mng}) => {
     }, [manga])
 
     return (
-        <Container>
+        <Container sx={{alignItems: 'center'}}>
             <div className='manga'>
                 <Grid container spacing={6}>
                     {manga.map((mang, i) => (

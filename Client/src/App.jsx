@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {Routes, Route} from 'react-router-dom'
 
 import api from './API/api.js'
-import getTopManga from './API/functions/getTopManga.js'
 
 //components
 import Header from './Components/Header/Header'

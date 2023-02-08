@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import {Routes, Route} from 'react-router-dom'
 
 import api from './API/api.js'
+import getTopManga from './API/functions/getTopManga.js'
 
 //components
 import Header from './Components/Header/Header'
 import Layout from './Components/Layout'
 import Home from './Components/Home/Home'
 import Mng from './Components/Manga/Mng/Mng'
+import Manhwa from './Components/Manga/Manhwa/Manhwa'
 
 
 function App() {
@@ -36,7 +38,21 @@ function App() {
 	}
 	
 	useEffect(() => {
-		getManga(manga)
+		getManga()
+	}, [])
+
+	const [manhwa, setManhwa] = useState([])
+	const getManhwa = async () => {
+		try {
+			const res = await api.get('/api/comick/top_comics/manhwa')
+			setManhwa(res.data.recentRank)
+		} catch(e) {
+			console.log(e)
+		}
+	}
+
+	useEffect(() => {
+		getManhwa()
 	}, [])
 
 	return (
@@ -47,6 +63,7 @@ function App() {
 					<Route path='/' element={<Layout />}>
 						<Route path='/' element={<Home comics={comics} />} />
 						<Route path='/Manga' element={<Mng mng={manga} />} />
+						<Route path='/Manhwa' element={<Manhwa mhwa={manhwa} />} />
 					</Route>
 				</Routes>
 			</div>

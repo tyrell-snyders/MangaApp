@@ -1,43 +1,43 @@
 import React, { useState, useEffect } from 'react'
 import { Container, CardActionArea, Card, CardContent, CardMedia, Typography, Grid } from '@mui/material'
 
-import './Mng.css'
+import './Mnh.css'
 
-const Mng = ({mng}) => {
-    const [manga, setManga] = useState([])
+const Manhwa = ({mhwa}) => {
+    const [manhwa, setManhwa] = useState([])
     const validateData = () => {
-        mng ? setManga(mng) : console.log('Invalid data')
-        console.log(manga)
+        mhwa ? setManhwa(mhwa) : console.log('Invalid data')
+        console.log(manhwa)
     }
 
     useEffect(() => {
         validateData()
-    }, [manga])
+    }, [manhwa])
 
     return (
-        <Container sx={{ marginBottom: '50px',alignItems: 'center', textAlign: 'center' }}>
-            <div className='manga'>
-            <Typography variant='h4' sx={{paddingBottom: '20px'}}>Manga</Typography>
+        <Container sx={{ marginBottom: '50px',alignItems: 'center', textAlign: 'center'}}>
+            <div className='manhwa'>
+                <Typography variant='h4' sx={{paddingBottom: '20px'}}>Manhwa</Typography>
                 <Grid container spacing={6}>
-                    {manga.map((mang, i) => (
+                    {manhwa.map((mnh, i) => (
                         <>
                             <Grid key={i} item xs={6} md={3}>
-                                <Card sx={{ maxWidth: 250 }}>
+                                <Card sx={{maxWidth: '250px'}}>
                                     <CardActionArea>
                                         <CardMedia 
-                                            component="img"
+                                            component='img'
                                             height="345"
-                                            image={`https://meo.comick.pictures/${mang.md_covers[0].b2key}`}
-                                            alt={mang.slug}
+                                            image={`https://meo.comick.pictures/${mnh.md_covers[0].b2key}`}
+                                            alt={mnh.slug}
                                         />
                                         <CardContent>
-                                            <Typography gutterBottom variant="h6" component="div">
-                                                {mang.title}
+                                            <Typography gutterBottom variant='h6' component='div'>
+                                                {mnh.title}
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
                                 </Card>
-                            </Grid>
+                            </Grid> 
                         </>
                     ))}
                 </Grid>
@@ -46,4 +46,4 @@ const Mng = ({mng}) => {
     )
 }
 
-export default Mng
+export default Manhwa

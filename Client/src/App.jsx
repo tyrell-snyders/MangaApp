@@ -9,6 +9,7 @@ import Layout from './Components/Layout'
 import Home from './Components/Home/Home'
 import Mng from './Components/Manga/Mng/Mng'
 import Manhwa from './Components/Manga/Manhwa/Manhwa'
+import Search from './Components/Search/Search'
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
 						<Route path='/' element={<Home comics={comics} />} />
 						<Route path='/Manga' element={<Mng mng={manga} />} />
 						<Route path='/Manhwa' element={<Manhwa mhwa={manhwa} />} />
+						<Route path='/Search' element={<Search />} />
 					</Route>
 				</Routes>
 			</div>

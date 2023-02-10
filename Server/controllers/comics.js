@@ -30,3 +30,17 @@ module.exports.getTopTrendingManwha = async(req, res) => {
         return e
     }
 }
+module.exports.searchComic = async(req, res) => {
+    try {
+        await axios.get(`${apiURI}/v1.0/search/?type=comic&page=1&limit=30&q=${req.params.comic}&t=false`).then(
+            response => {
+                const data = response.data
+                res.send(data)
+                return data
+            }
+        )
+    } catch (error) {
+        console.log(error)
+        return error
+    }
+}

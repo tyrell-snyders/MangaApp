@@ -45,3 +45,31 @@ module.exports.searchComic = async(req, res) => {
         return error
     }
 }
+
+module.exports.getChapters = async(req, res) => {
+    try {
+        await axios.get(`${apiURI}/comic/${req.params.hid}/chapters?lang=en`).then(
+            response => {
+                const data = response.data
+                res.send(data)
+                return data
+            }
+        )
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+module.exports.getChapter = async(req, res) => {
+    try {
+        await axios.get(`${apiURI}/chapter/${req.params.hid}?lang=en`).then(
+            response => {
+                const data = response.data
+                res.send(data)
+                return data
+            }
+        )
+    } catch (err) {
+        console.log(err)
+    }
+}

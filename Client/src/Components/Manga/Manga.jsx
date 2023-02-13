@@ -6,7 +6,7 @@ const Manga = ({title, pic, chap, slug}) => {
     
     return (
         <>
-            <Grid item xs={6} md={3}>
+            <Grid item xs={12} md={3}>
                 <Card sx={{ maxWidth: 250 }}>           
                     <CardActionArea>
                         <CardMedia

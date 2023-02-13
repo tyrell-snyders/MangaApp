@@ -15,13 +15,13 @@ const Mng = ({mng}) => {
     }, [manga])
 
     return (
-        <Container sx={{ marginBottom: '50px',alignItems: 'center', textAlign: 'center' }}>
+        <Container sx={{ marginBottom: '50px', alignItems: 'center', textAlign: 'center' }}>
             <div className='manga'>
             <Typography variant='h4' sx={{paddingBottom: '20px'}}>Manga</Typography>
                 <Grid container spacing={6}>
                     {manga.map((mang, i) => (
                         <>
-                            <Grid key={i} item xs={6} md={3}>
+                            <Grid key={i} item xs={12} md={3}>
                                 <Card sx={{ maxWidth: 250 }}>
                                     <CardActionArea>
                                         <CardMedia 

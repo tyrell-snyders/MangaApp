@@ -21,7 +21,7 @@ const Manhwa = ({mhwa}) => {
                 <Grid container spacing={6}>
                     {manhwa.map((mnh, i) => (
                         <>
-                            <Grid key={i} item xs={6} md={3}>
+                            <Grid key={i} item xs={12} md={3}>
                                 <Card sx={{maxWidth: '250px'}}>
                                     <CardActionArea>
                                         <CardMedia 

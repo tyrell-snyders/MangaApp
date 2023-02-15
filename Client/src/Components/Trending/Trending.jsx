@@ -20,9 +20,10 @@ const Trending = ({comics}) => {
                 {comics.map((com, i) => (
                     <Manga 
                         key={i}
+                        id={com.id}
                         title={com.title}
                         pic={com.md_covers}
-                        chap={com.last_chapter}
+                        chap={com.count}
                         slug={com.slug}
                     />
                 ))}

@@ -17,7 +17,8 @@ function App() {
 	const getTopManga = async () => {
 		try {
 			const res = await api.get('/api/comick/top_comics/manga')
-			setComics(res.data.rank)
+			setComics(res.data.topFollowComics[7])
+			console.log(res.data.topFollowComics[7])
 		} catch (e) {
 			console.log(e)
 		}
@@ -45,6 +46,7 @@ function App() {
 	const getManhwa = async () => {
 		try {
 			const res = await api.get('/api/comick/top_comics/manhwa')
+
 			setManhwa(res.data.recentRank)
 		} catch(e) {
 			console.log(e)

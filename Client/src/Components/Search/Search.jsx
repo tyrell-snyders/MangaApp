@@ -86,7 +86,7 @@ const Results = ({res, comics}) => {
     const getHid = (e) => {
         const { value } = e.target.dataset
         alert(value)
-        // navigate(`/comic/chapters/${value}`)
+        navigate(`/comic/chapters/${value}`)
     }
 
     return (

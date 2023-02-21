@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Container, TextField, CardActionArea, Card, CardContent, CardMedia, Typography, Grid, Button } from '@mui/material'
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
+import IconButton from "@mui/material/IconButton"
+import SearchIcon from "@mui/icons-material/Search"
+import {useNavigate} from 'react-router-dom'
 
 import api from '../../API/api.js'
 
@@ -21,7 +22,7 @@ const Search = () => {
             if (result.data) {
                 setComics(result.data)
             } else {
-                console.log('Nothing found')
+                alert('Nothing found')
             }
         } catch (err) {
             console.log(err)
@@ -80,6 +81,14 @@ const Search = () => {
 export default Search
 
 const Results = ({res, comics}) => {
+    const navigate = useNavigate()
+
+    const getHid = (e) => {
+        const { value } = e.target.dataset
+        alert(value)
+        // navigate(`/comic/chapters/${value}`)
+    }
+
     return (
         <Container sx={{ marginBottom: '50px',alignItems: 'center', textAlign: 'center' }}>
             <Typography variant='h4' sx={{paddingBottom: '20px'}}>
@@ -88,7 +97,7 @@ const Results = ({res, comics}) => {
             <Grid container spacing={6}>
                 {comics.map((comic, i) => (
                     <>
-                        <Grid key={comic.id} item xs={12} md={3}>
+                        <Grid key={comic.hid} item xs={12} md={3} data-value={comic.title}>
                             <Card sx={{ maxWidth: '250px' }}>
                                 <CardActionArea>
                                     <CardMedia 
@@ -99,9 +108,14 @@ const Results = ({res, comics}) => {
                                     />
                                 </CardActionArea>
                                 <CardContent>
-                                    <Typography gutterBottom variant="h6" component="div">
+                                    <Typography
+                                        gutterBottom 
+                                        variant="h6" 
+                                        component="div"
+                                    >
                                         {comic.title}
                                     </Typography>
+                                    <Button data-value={comic.hid} onClick={getHid}>Read</Button>
                                 </CardContent>
                             </Card>
                         </Grid>

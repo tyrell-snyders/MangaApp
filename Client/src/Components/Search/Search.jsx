@@ -115,7 +115,7 @@ const Results = ({res, comics}) => {
                                     >
                                         {comic.title}
                                     </Typography>
-                                    <Button data-value={comic.hid} onClick={getHid}>Read</Button>
+                                    <Button data-value={[`${comic.hid}-${comic.slug}`]} onClick={getHid}>Read</Button>
                                 </CardContent>
                             </Card>
                         </Grid>

@@ -1,3 +1,6 @@
 ## node Modules
 /Client/node_modules
 /Server/node_modules
+
+//Config for IDE
+.vs

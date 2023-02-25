@@ -68,7 +68,7 @@ function App() {
 						<Route path='/Manga' element={<Mng mng={manga} />} />
 						<Route path='/Manhwa' element={<Manhwa mhwa={manhwa} />} />
 						<Route path='/Search' element={<Search />} />
-						<Route path='/comic/chapters/:hid' element={<Chapters />} />
+						<Route path='/comic/chapters/:data' element={<Chapters />} />
 					</Route>
 				</Routes>
 			</div>

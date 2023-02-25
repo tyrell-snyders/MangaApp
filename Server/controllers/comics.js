@@ -57,6 +57,7 @@ module.exports.getChapters = async(req, res) => {
         )
     } catch (err) {
         console.log(err)
+        return err
     }
 }
 
@@ -71,5 +72,21 @@ module.exports.getChapter = async(req, res) => {
         )
     } catch (err) {
         console.log(err)
+        return err
+    }
+}
+
+module.exports.getComicData = async(req, res) => {
+    try {
+        await axios.get(`${apiURI}/comic/${req.params.slug}`).then(
+            response => {
+                const data = response.data
+                res.send(data)
+                return data
+            }
+        )
+    } catch (err) {
+        console.log(err)
+        return err
     }
 }

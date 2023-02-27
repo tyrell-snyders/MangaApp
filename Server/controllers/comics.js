@@ -87,6 +87,7 @@ module.exports.getComicData = async(req, res) => {
         )
     } catch (err) {
         console.log(err)
+        res.send
         return err
     }
 }

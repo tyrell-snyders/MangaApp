@@ -39,6 +39,26 @@ const Chapters = () => {
         getManga()
     }, [data])
 
+    const [genres, setGenres] = useState([])
+    // const getGenre = () => {
+    //     setGenre(manga.comic?.md_comic_md_genres)
+    // }
+
+    // useEffect(() => {
+    //     getGenre()
+    // }, [manga])
+
+    // console.log(genre)
+    const genre = []
+    manga.comic?.md_comic_md_genres.forEach((gnr, i) => {
+        genre.push(gnr)
+    })
+
+    useEffect(() => {
+        setGenres(genre)
+    }, [manga])
+
+    console.log(genres)
 
     return (
         <>
@@ -52,31 +72,35 @@ const Chapters = () => {
                                 width: 350
                             }}
                             alt='Poster'
-                            // src={`https://meo.comick.pictures/${manga.comic.md_covers[0].b2key}`}
+                            src={`https://meo.comick.pictures/${manga.comic?.md_covers[0]?.b2key}`}
                         />
                     </Grid>
                     <Grid item md={6} className='manga-info'>
                         <Typography variant='h4' className='title'>
-                            {manga.comic.title}
+                            {manga.comic?.title}
                         </Typography>
                         <Typography variant='h7'> 
-                            {manga.comic.desc}
+                            {manga.comic?.desc}
                         </Typography>
                         <Container class='info'>
-                            <Typography>
-                                {/* Genres: {manga.comic.md_comic_md_genres} */}
+                            <Typography variant='h5'>
+                                Genres:
                             </Typography>
+                            {genres.map((gnr, i) => (
+                                <Typography key={i}>
+                                    {gnr[i]?.md_genres.slug}
+                                </Typography>
+                            ))}
                         </Container>
                     </Grid>
                 </Grid>
             </Container>
             <hr />
-            <Container sx={{marginTop: '80px'}}>
+            <Container sx={{marginTop: '80px', marginBottom: '60px', justifyContent: 'center', alignItems: 'center'}}>
                 <div className='chapters'>
                     <Typography variant='h5'>Chapters</Typography>
                     <Grid 
-                        sx={{marginTop: '40px', 
-                            alignItems: 'center', 
+                        sx={{marginTop: '40px',
                             overflow: 'auto', 
                             height: '400px',
                             width: '500px'
@@ -88,7 +112,7 @@ const Chapters = () => {
                         
                             <Grid item key={i} xs={12}>  
                                 <Button 
-                                    sx={{color: 'black', width: '150px', backgroundColor: 'gray', marginTop: '20px'}}
+                                    sx={{color: 'black', width: '300px', backgroundColor: 'gray', marginTop: '20px'}}
                                 >
                                     <Typography>{chapter.chap}</Typography>
                                 </Button>

@@ -9,6 +9,7 @@ import api from '../../API/api.js'
 const Search = () => {
     const [res, setRes] = useState()
     const [search, setSearch] = useState(false)
+    const [rawComics, setRawComics] = useState([])
     const [comics, setComics] = useState([])
     const [src , setSrc] = useState()
 
@@ -19,8 +20,10 @@ const Search = () => {
     const getSearch = async() => {
         try {
             const result = await api.get(`/api/comick/search/${res}`)
+            console.log(res)
             if (result.data) {
-                setComics(result.data)
+                setRawComics(result.data)
+                setRawComics(result.data)
             } else {
                 alert('Nothing found')
             }
@@ -35,16 +38,24 @@ const Search = () => {
             if (res) {
                 setSearch(true)
                 getSearch()
-                setSrc(res)
-                
+                setSrc(res)    
             } else {
                 alert('Please enter a value for search')
             }
         } catch (err) {
             console.log(err)
         }
-        console.log(comics)
+        console.log(rawComics)
+        
     }
+
+    useEffect(() => {
+        if (rawComics) {
+            setComics(rawComics)
+        }
+    }, [rawComics])
+
+    console.log(comics)
 
     return (
         <>
@@ -68,7 +79,7 @@ const Search = () => {
                 {search && comics && (
                     <Results res={src} comics={comics} />
                 )}
-                {!comics && (
+                {comics.length == 0 && (
                     <>
                         <Typography>Results not found!</Typography>
                     </>
@@ -103,7 +114,7 @@ const Results = ({res, comics}) => {
                                     <CardMedia 
                                         component="img"
                                         height="350"
-                                        image={`https://meo.comick.pictures/${comic.md_covers[0].b2key}`}
+                                        image={`https://meo.comick.pictures/${comic.md_covers[0]?.b2key}`}
                                         alt={comic.slug}
                                     />
                                 </CardActionArea>
@@ -120,7 +131,8 @@ const Results = ({res, comics}) => {
                             </Card>
                         </Grid>
                     </>
-                ))}
+                )
+                )}
             </Grid>
         </Container>
     )

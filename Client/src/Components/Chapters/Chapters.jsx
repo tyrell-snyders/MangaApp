@@ -40,26 +40,27 @@ const Chapters = () => {
     }, [data])
 
     const [genres, setGenres] = useState([])
-    // const getGenre = () => {
-    //     setGenre(manga.comic?.md_comic_md_genres)
-    // }
-
-    // useEffect(() => {
-    //     getGenre()
-    // }, [manga])
-
-    // console.log(genre)
-    const genre = []
-    manga.comic?.md_comic_md_genres.forEach((gnr, i) => {
-        genre.push(gnr)
-    })
+    const getGenre = () => {
+        setGenre(manga.comic?.md_comic_md_genres)
+    }
 
     useEffect(() => {
-        setGenres(genre)
+        getGenre()
     }, [manga])
 
-    console.log(genres)
+    console.log(genre)
+    
 
+    // useEffect(() => {
+    //     const genre = []
+    //     manga.comic?.md_comic_md_genres.forEach((gnr, i) => {
+    //         genre.push(gnr)
+    //     })
+    //     setGenres(genre)
+    // }, [manga])
+
+    console.log(genres)
+    
     return (
         <>
             <Container className='manga-data' sx={{marginTop: '80px', marginBottom: '20px'}}>

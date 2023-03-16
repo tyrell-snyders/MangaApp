@@ -1,0 +1,4 @@
+export const FETCH_ALL_MANGA = 'FETCH_ALL_MANGA'
+export const SEARCH = 'SEARCH'
+export const FETCH_ALL_MANHWA = 'FETCH_ALL_MANHWA'
+export const FETCH_COMICK = 'FETCH_COMICK'

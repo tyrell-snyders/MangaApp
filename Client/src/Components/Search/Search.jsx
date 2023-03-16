@@ -32,6 +32,8 @@ const Search = () => {
         }
     }
 
+    let buttRes = ""
+
     const handleSubmit = (e) => {
         e.preventDefault()
         try {
@@ -52,6 +54,10 @@ const Search = () => {
     useEffect(() => {
         if (rawComics) {
             setComics(rawComics)
+        }
+
+        if (comics.length === 0) {
+            buttRes = "Results not found!"
         }
     }, [rawComics])
 
@@ -79,11 +85,7 @@ const Search = () => {
                 {search && comics && (
                     <Results res={src} comics={comics} />
                 )}
-                {comics.length == 0 && (
-                    <>
-                        <Typography>Results not found!</Typography>
-                    </>
-                )}
+                <Typography>{buttRes}</Typography>
             </Container>
         </>
     )

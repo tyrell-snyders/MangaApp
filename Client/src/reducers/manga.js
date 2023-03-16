@@ -1,4 +1,4 @@
-import { FETCH_ALL_MANGA, SEARCH, FETCH_ALL_MANHWA, FETCH_COMICK, LIKE } from '../constants/actionTypes'
+import { FETCH_ALL_MANGA, SEARCH, FETCH_ALL_MANHWA, FETCH_COMICK } from '../constants/actionTypes'
 
 export default reducer = (action) => {
     switch (action.payload) {
